@@ -1,6 +1,7 @@
 package libtower
 
 import (
+	"context"
 	"net"
 	"net/url"
 	"time"
@@ -17,7 +18,7 @@ type TCP struct {
 }
 
 // TCPPortCheck checks if a tcp port is open
-func (tr *TCP) TCPPortCheck() (bool, error) {
+func (tr *TCP) TCPPortCheck(ctx context.Context) (bool, error) {
 	tr.Start = time.Now()
 	conn, err := net.DialTimeout("tcp", tr.URL.Host, tr.Timeout)
 	tr.End = time.Now()
