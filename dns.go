@@ -10,6 +10,16 @@ import (
 	"github.com/miekg/dns"
 )
 
+// DNS type
+type DNS struct {
+	ADDR    string
+	Timeout time.Duration
+
+	Start    time.Time
+	End      time.Time
+	Duration time.Duration
+}
+
 // DNSLookup func
 func DNSLookup(addr string) (*net.IPAddr, time.Duration, error) {
 	var dns time.Time
